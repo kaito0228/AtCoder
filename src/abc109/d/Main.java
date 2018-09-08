@@ -26,20 +26,6 @@ public class Main {
             int stock = 0;
             boolean flag = false;
 
-            for (int i = 0; i < h; i++) {
-                stock = 0;
-                flag = false;
-                for (int j = 0; i < w; i++) {
-                    stock = nint(sc);
-                    flag = true;
-
-                    if (stock % 2 != 0){
-                        stock--;
-                        flag = true;
-                    }
-                    a[i][j] = stock;
-                }
-            }
 
 
         }
