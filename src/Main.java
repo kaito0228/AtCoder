@@ -14,6 +14,7 @@ public class Main {
 
     } catch (Exception e) {
       // DO NOT USE
+      e.printStackTrace();
     }
   }
 
