@@ -21,6 +21,7 @@ public class Main {
     private void solve(Scanner sc, PrintWriter out) {
       // TODO
 
+      out.println("Hello AtCoder");
     }
   }
 
