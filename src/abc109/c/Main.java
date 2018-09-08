@@ -1,7 +1,10 @@
 package abc109.c;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
@@ -20,23 +23,22 @@ public class Main {
     public void solve(Scanner sc, PrintWriter out) {
       // TODO
       int n = nint(sc);
-      long x = nlong(sc);
+      int x = nint(sc);
 
-      List<Long> list = getLongList(sc, n);
-      list.add(x);
-      Collections.sort(list);
-      long min = Long.MAX_VALUE;
-      long stock = list.get(0);
-      for (int i = 1; i < list.size(); i++) {
-        if ((list.get(i) - stock) < min) {
-          min = list.get(i) - stock;
+      int[] xArray = new int[n];
+
+      for (int i = 0; i < n; i++) {
+        xArray[i] = Math.abs(x - nint(sc));
+      }
+
+      if (n == 1) out.println(xArray[0]);
+      else {
+        long ans = gcd(xArray[0], xArray[1]);
+        for (int i = 2; i < n; i++) {
+          ans = gcd(ans, xArray[i]);
         }
+        out.println(ans);
       }
-
-      if (min == 0) {
-        min = 1;
-      }
-      out.println(min);
     }
   }
 
@@ -125,5 +127,11 @@ public class Main {
       list.add(nlong(sc));
     }
     return list;
+  }
+
+  static long gcd(long m, long n) {
+    if (m < n) return gcd(n, m);
+    if (n == 0) return m;
+    return gcd(n, m % n);
   }
 }

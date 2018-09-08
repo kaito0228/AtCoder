@@ -19,16 +19,41 @@ public class Main {
     }
   }
 
-  static class Task {
-    public void solve(Scanner sc, PrintWriter out) {
+  private static class Task {
+    private void solve(Scanner sc, PrintWriter out) {
 
-      int h = nint(sc);
-      int w = nint(sc);
+      int H = nint(sc);
+      int W = nint(sc);
 
-      int[][] a = new int[h][w];
+      int[][] a = new int[H][W];
 
-      int stock = 0;
-      boolean flag = false;
+      for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+          a[i][j] = nint(sc);
+        }
+      }
+
+      ArrayList<String> ans = new ArrayList<>();
+      for (int i = 0; i < H; ++i) {
+        for (int j = 0; j < W - 1; ++j) {
+          if (a[i][j] != 0 && a[i][j] % 2 != 0) {
+            a[i][j]--;
+            a[i][j + 1]++;
+            ans.add((i + 1) + " " + (j + 1) + " " + (i + 1) + " " + (j + 2));
+          }
+        }
+      }
+
+      for (int i = 0; i < H - 1; ++i) {
+        if (a[i][W - 1] != 0 && a[i][W - 1] % 2 != 0) {
+          a[i][W - 1]--;
+          a[i + 1][W - 1]++;
+          ans.add((i + 1) + " " + (W) + " " + (i + 2) + " " + (W));
+        }
+      }
+
+      out.println(ans.size());
+      ans.stream().forEach(out::println);
     }
   }
 
