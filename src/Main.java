@@ -109,4 +109,14 @@ public class Main {
         }
         return list;
     }
+
+    static long gcd(long m, long n) {
+        if(m < n) return gcd(n, m);
+        if(n == 0) return m;
+        return gcd(n, m % n);
+    }
+
+    static long lcm(long m, long n) {
+        return m * n / gcd(m, n);
+    }
 }
