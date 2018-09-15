@@ -23,18 +23,7 @@ public class Main {
   private static class Task {
     private void solve(Scanner sc, PrintWriter out) {
       // TODO
-      int N = nint(sc);
-      int x = nint(sc);
-
-      List<Long> list = getLongList(sc, N);
-
-      long sum = 0;
-      for (long a : list) {
-
-        sum += a;
-      }
-
-      out.println(sum);
+      // not cleared
     }
 
     // method

@@ -3,6 +3,8 @@ package agc027.a;
 import java.io.PrintWriter;
 import java.util.*;
 
+import static java.lang.System.exit;
+
 public class Main {
   public static void main(String[] args) {
     try (PrintWriter out = new PrintWriter(System.out);
@@ -14,6 +16,8 @@ public class Main {
     } catch (Exception e) {
       // DO NOT USE
       e.printStackTrace();
+      exit(1);
+
     }
   }
 
