@@ -1,3 +1,5 @@
+package agc.b;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,9 +23,19 @@ public class Main {
   private static class Task {
     private void solve(Scanner sc, PrintWriter out) {
       // TODO
-      int n = nint(sc);
+      int N = nint(sc);
+      int x = nint(sc);
 
-      out.println("Hello AtCoder");
+      List<Long> list = getLongList(sc, N);
+
+      long sum = 0;
+      for (long a : list) {
+
+          sum += a;
+      }
+
+
+      out.println(sum);
     }
 
     // method
