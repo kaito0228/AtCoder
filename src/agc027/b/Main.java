@@ -1,4 +1,4 @@
-package agc.b;
+package agc027.b;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -31,9 +31,8 @@ public class Main {
       long sum = 0;
       for (long a : list) {
 
-          sum += a;
+        sum += a;
       }
-
 
       out.println(sum);
     }

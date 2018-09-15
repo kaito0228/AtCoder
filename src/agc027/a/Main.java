@@ -1,4 +1,4 @@
-package agc.a;
+package agc027.a;
 
 import java.io.PrintWriter;
 import java.util.*;
@@ -21,32 +21,31 @@ public class Main {
     private void solve(Scanner sc, PrintWriter out) {
       // TODO
 
-        int N = nint(sc);
-        int x = nint(sc);
+      int N = nint(sc);
+      int x = nint(sc);
 
-        List<Integer> list = getIntegerList(sc, N);
+      List<Integer> list = getIntegerList(sc, N);
 
-        Collections.sort(list);
+      Collections.sort(list);
 
-        int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            x = x - list.get(i);
+      int count = 0;
+      for (int i = 0; i < list.size(); i++) {
+        x = x - list.get(i);
 
-            if (x < 0) {
-                break;
-            }
-
-            count++;
+        if (x < 0) {
+          break;
         }
 
-        if (x > 0){
-            count--;
-        }
+        count++;
+      }
 
-        out.println(count);
-    }
-    }
+      if (x > 0) {
+        count--;
+      }
 
+      out.println(count);
+    }
+  }
 
   // method
   private static int nint(Scanner sc) {
