@@ -1,5 +1,8 @@
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
@@ -118,36 +121,6 @@ public class Main {
 
     private static long lcm(long m, long n) {
       return m * n / gcd(m, n);
-    }
-
-    private static Integer mode(List<Integer> list) {
-      if (list.size() <= 0) {
-        throw new IllegalArgumentException();
-      }
-
-      Map<Integer, Integer> modeMap = new HashMap<>();
-
-      list.stream()
-          .forEach(
-              x -> {
-                if (modeMap.containsKey(x)) {
-                  modeMap.put(x, modeMap.get(x) + 1);
-                } else {
-                  modeMap.put(x, 1);
-                }
-              });
-
-      int maxValue = 0;
-      int maxKey = 0;
-
-      for (Map.Entry<Integer, Integer> entry : modeMap.entrySet()) {
-        if (maxValue < entry.getValue()) {
-          maxValue = entry.getValue();
-          maxKey = entry.getKey();
-        }
-      }
-
-      return maxKey;
     }
   }
 }
