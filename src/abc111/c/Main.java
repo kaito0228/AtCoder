@@ -1,8 +1,7 @@
+package abc111.c;
+
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -22,8 +21,29 @@ public class Main {
     private void solve(Scanner sc, PrintWriter out) {
       // TODO
       int n = nint(sc);
-
-      out.println("Hello AtCoder");
+      Map<Integer, Integer> mapEven = new HashMap<>();
+      Map<Integer, Integer> mapOdd = new HashMap<>();
+      for (int i = 0; i < n; i++) {
+        int temp = nint(sc);
+        if (i % 2 == 0) {
+          mapEven.put(temp, mapEven.getOrDefault(temp, 0) + 1);
+        } else {
+          mapOdd.put(temp, mapOdd.getOrDefault(temp, 0) + 1);
+        }
+      }
+      List<Map.Entry<Integer, Integer>> o = new ArrayList<>(mapOdd.entrySet());
+      List<Map.Entry<Integer, Integer>> e = new ArrayList<>(mapEven.entrySet());
+      o.sort((o1, o2) -> o2.getValue() - o1.getValue());
+      e.sort((o1, o2) -> o2.getValue() - o1.getValue());
+      int o1 = o.get(0).getValue();
+      int o2 = o.size() == 1 ? 0 : o.get(1).getValue();
+      int e1 = e.get(0).getValue();
+      int e2 = e.size() == 1 ? 0 : e.get(1).getValue();
+      if (!o.get(0).getKey().equals(e.get(0).getKey())) {
+        out.println(n - o1 - e1);
+      } else {
+        out.println(n - Math.max(o1 + e2, o2 + e1));
+      }
     }
 
     // method
@@ -121,6 +141,36 @@ public class Main {
 
     private static long lcm(long m, long n) {
       return m * n / gcd(m, n);
+    }
+
+    private static Integer mode(List<Integer> list) {
+      if (list.size() <= 0) {
+        throw new IllegalArgumentException();
+      }
+
+      Map<Integer, Integer> modeMap = new HashMap<Integer, Integer>();
+
+      list.stream()
+          .forEach(
+              x -> {
+                if (modeMap.containsKey(x)) {
+                  modeMap.put(x, modeMap.get(x) + 1);
+                } else {
+                  modeMap.put(x, 1);
+                }
+              });
+
+      int maxValue = 0;
+      int maxKey = 0;
+
+      for (Map.Entry<Integer, Integer> entry : modeMap.entrySet()) {
+        if (maxValue < entry.getValue()) {
+          maxValue = entry.getValue();
+          maxKey = entry.getKey();
+        }
+      }
+
+      return maxKey;
     }
   }
 }

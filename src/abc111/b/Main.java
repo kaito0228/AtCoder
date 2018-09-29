@@ -1,3 +1,5 @@
+package abc111.b;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -23,7 +25,18 @@ public class Main {
       // TODO
       int n = nint(sc);
 
-      out.println("Hello AtCoder");
+      int ans = 111;
+
+      if (n > 111 && n <= 222) ans = 222;
+      else if (n > 222 && n <= 333) ans = 333;
+      else if (n > 333 && n <= 444) ans = 444;
+      else if (n > 444 && n <= 555) ans = 555;
+      else if (n > 555 && n <= 666) ans = 666;
+      else if (n > 666 && n <= 777) ans = 777;
+      else if (n > 777 && n <= 888) ans = 888;
+      else if (n > 888 && n <= 999) ans = 999;
+
+      out.println(ans);
     }
 
     // method

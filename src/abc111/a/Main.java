@@ -1,3 +1,5 @@
+package abc111.a;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -23,7 +25,7 @@ public class Main {
       // TODO
       int n = nint(sc);
 
-      out.println("Hello AtCoder");
+      out.println(1110 - n);
     }
 
     // method
