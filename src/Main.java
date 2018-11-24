@@ -195,6 +195,30 @@ public class Main {
     }
 
     /**
+     * Returns the summation of list. リストの要素の合計値を返します。
+     *
+     * @param list List<Integer>
+     * @return sum of list
+     */
+    private static int sumList(List<Integer> list) {
+      int sum = 0;
+      for (Integer n : list) {
+        sum += n;
+      }
+      return sum;
+    }
+
+    /**
+     * Returns the average of list. リストの要素の平均値を返します。
+     *
+     * @param list List<Integer>
+     * @return average of list
+     */
+    private static double aveList(List<Integer> list) {
+      return (double) sumList(list) / list.size();
+    }
+
+    /**
      * Returns the greatest common divisor of the two given values. 与えた2つの値の最大公約数を返します。
      *
      * @param m long
