@@ -252,20 +252,26 @@ public class Main {
     }
 
     Map<Integer, Integer> modeMap = new HashMap<>();
-
-    for (Integer x : list) {
-      if (modeMap.containsKey(x)) {
-        modeMap.put(x, modeMap.get(x) + 1);
+    Integer[] x = new Integer[list.size()];
+    list.toArray(x);
+    
+    modeMap.put(x[x.length-1], 1);
+    int maxValue = 1;
+    int maxKey = x[x.length-1];
+    for (int i = x.length-2;i >= 0;--i) {
+      if (modeMap.containsKey(x[i])) {
+    	Integer cap = modeMap.get(x[i]) + 1;
+        modeMap.put(x[i], cap);
+        if(maxValue < cap) {
+        	maxValue = cap;
+        	maxKey = x[i];
+        }
       } else {
-        modeMap.put(x, 1);
+        modeMap.put(x[i], 1);
       }
     }
-
-    return modeMap.entrySet().stream()
-                .max(Map.Entry.comparingByValue())
-                .get()
-                .getKey();
-
+    
+    return maxKey;
   }
 
   private static Map<Integer, Integer> primeFactorize(long num) {
