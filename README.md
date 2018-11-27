@@ -2,4 +2,4 @@
 
 * **Goal** 
 
-I will be a light blue coder within 2018.
+I will be a green coder within 2018.
