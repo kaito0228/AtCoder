@@ -261,17 +261,11 @@ public class Main {
       }
     }
 
-    int maxValue = 0;
-    int maxKey = 0;
+    return modeMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getKey();
 
-    for (Map.Entry<Integer, Integer> entry : modeMap.entrySet()) {
-      if (maxValue < entry.getValue()) {
-        maxValue = entry.getValue();
-        maxKey = entry.getKey();
-      }
-    }
-
-    return maxKey;
   }
 
   private static Map<Integer, Integer> primeFactorize(long num) {
