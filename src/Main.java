@@ -247,33 +247,29 @@ public class Main {
    * @return most frequent value
    */
   private static Integer mode(List<Integer> list) {
-    if (list.size() <= 0) {
+    switch(list.size()) {
+    case 0:
       throw new IllegalArgumentException();
-    } else if (list.size() == 1) {
+    case 1:
       return list.get(0);
-    }
-
-    Map<Integer, Integer> modeMap = new HashMap<>();
-    Integer[] x = new Integer[list.size()];
-    list.toArray(x);
-    
-    modeMap.put(x[x.length-1], 1);
-    int maxValue = 1;
-    int maxKey = x[x.length-1];
-    for (int i = x.length-2;i >= 0;--i) {
-      if (modeMap.containsKey(x[i])) {
-    	Integer cap = modeMap.get(x[i]) + 1;
-        modeMap.put(x[i], cap);
-        if(maxValue < cap) {
-        	maxValue = cap;
-        	maxKey = x[i];
+    default:
+      Integer[] x = new Integer[list.size()];
+      list.toArray(x);
+      Arrays.sort(x);
+	  
+      int maxValue = 1, maxKey = x[x.length-1], previousKey = x[x.length-1], breakPoint = x.length-1;
+      for (int i = x.length-2;i >= 0;--i) {
+        if (previousKey != x[i]) {
+          if (maxValue < breakPoint - i) {
+            maxValue = breakPoint - i;
+            maxKey = x[i+1];
+          }
+          previousKey = x[i];
+          breakPoint = i;
         }
-      } else {
-        modeMap.put(x[i], 1);
       }
+      return breakPoint+1 > maxValue ? x[0] : maxKey;
     }
-    
-    return maxKey;
   }
 
   private static Map<Integer, Integer> primeFactorize(long num) {
