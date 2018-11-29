@@ -249,6 +249,8 @@ public class Main {
   private static Integer mode(List<Integer> list) {
     if (list.size() <= 0) {
       throw new IllegalArgumentException();
+    } else if (list.size() == 1) {
+      return list.get(0);
     }
 
     Map<Integer, Integer> modeMap = new HashMap<>();
