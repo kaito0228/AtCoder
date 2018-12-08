@@ -247,28 +247,31 @@ public class Main {
    * @return most frequent value
    */
   private static Integer mode(List<Integer> list) {
-    switch(list.size()) {
-    case 0:
-      throw new IllegalArgumentException();
-    case 1:
-      return list.get(0);
-    default:
-      Integer[] x = new Integer[list.size()];
-      list.toArray(x);
-      Arrays.sort(x);
-	  
-      int maxValue = 1, maxKey = x[x.length-1], previousKey = x[x.length-1], breakPoint = x.length-1;
-      for (int i = x.length-2;i >= 0;--i) {
-        if (previousKey != x[i]) {
-          if (maxValue < breakPoint - i) {
-            maxValue = breakPoint - i;
-            maxKey = x[i+1];
+    switch (list.size()) {
+      case 0:
+        throw new IllegalArgumentException();
+      case 1:
+        return list.get(0);
+      default:
+        Integer[] x = new Integer[list.size()];
+        list.toArray(x);
+        Arrays.sort(x);
+
+        int maxValue = 1,
+            maxKey = x[x.length - 1],
+            previousKey = x[x.length - 1],
+            breakPoint = x.length - 1;
+        for (int i = x.length - 2; i >= 0; --i) {
+          if (previousKey != x[i]) {
+            if (maxValue < breakPoint - i) {
+              maxValue = breakPoint - i;
+              maxKey = x[i + 1];
+            }
+            previousKey = x[i];
+            breakPoint = i;
           }
-          previousKey = x[i];
-          breakPoint = i;
         }
-      }
-      return breakPoint+1 > maxValue ? x[0] : maxKey;
+        return breakPoint + 1 > maxValue ? x[0] : maxKey;
     }
   }
 
