@@ -301,9 +301,8 @@ public class Main {
    * @param bool boolean
    * @return "YES" or "NO"
    */
-  private static String upperYesNo(boolean bool) {
-    if (bool) return "YES";
-    else return "NO";
+  private static String upperYESNO(boolean bool) {
+    return bool ? "YES" : "NO";
   }
 
   /**
@@ -313,7 +312,6 @@ public class Main {
    * @return "Yes" or "No"
    */
   private static String pascalYesNo(boolean bool) {
-    if (bool) return "Yes";
-    else return "No";
+    return bool ? "Yes" : "No";
   }
 }
