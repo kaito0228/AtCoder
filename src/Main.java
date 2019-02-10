@@ -294,4 +294,26 @@ public class Main {
     if (num > 1) map.put((int) num, 1);
     return map;
   }
+
+  /**
+   * Returns "YES" or "NO". アッパーケースのYES,NOを返します。
+   *
+   * @param bool boolean
+   * @return "YES" or "NO"
+   */
+  private static String upperYesNo(boolean bool) {
+    if (bool) return "YES";
+    else return "NO";
+  }
+
+  /**
+   * Returns "Yes" or "No". パスカルケースのYes,Noを返します。
+   *
+   * @param bool boolean
+   * @return "Yes" or "No"
+   */
+  private static String pascalYesNo(boolean bool) {
+    if (bool) return "Yes";
+    else return "No";
+  }
 }
