@@ -1,4 +1,4 @@
-package template.c;
+package abc122.c;
 
 import java.io.PrintWriter;
 import java.util.*;

@@ -1,7 +1,9 @@
-package template.b;
+package abc122.b;
 
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Hello AtCoder.
@@ -23,9 +25,21 @@ public class Main {
 
   private static void solve(Scanner sc, PrintWriter out) {
     // TODO
-    int n = nint(sc);
+    String s = nstr(sc);
+    Pattern pattern = Pattern.compile("[AGCT]+");
+    Matcher matcher = pattern.matcher(s);
 
-    out.println("Hello AtCoder" + n);
+    if (matcher.find()) {
+      int a = matcher.group().length();
+      if (matcher.find()) {
+        int b = matcher.group().length();
+        out.println(a > b ? a : b);
+      } else {
+        out.println(a);
+      }
+    } else {
+      out.println(0);
+    }
   }
 
   // method
