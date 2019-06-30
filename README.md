@@ -1,4 +1,4 @@
-# AtCoder-by-IntelliJ
+# AtCoder
 
 * **Goal** 
 
